@@ -99,7 +99,7 @@ public class EmployeeController {
 	 * 
 	 */
 	@ApiOperation(value = "Edit Employee according to Id")
-	@RequestMapping(value = "/edit/{id}/{name}/{managerName}/{department}/{salary}", method = PUT)
+	@RequestMapping(value = "/{id}/{name}/{managerName}/{department}/{salary}", method = PUT)
 	public @ResponseBody Status editEmployee(@PathVariable int id,
 			@PathVariable String name, @PathVariable String managerName,
 			@PathVariable String department, @PathVariable double salary) {
@@ -183,7 +183,7 @@ public class EmployeeController {
 	 */
 
 	@ApiOperation(value = "Delete Employee according to Id")
-	@RequestMapping(value = "/delete/{id}", method = DELETE)
+	@RequestMapping(value = "/{id}", method = DELETE)
 	public @ResponseBody Status deleteEmployee(@PathVariable int id) {
 		Employee employee = new Employee();
 		employee.setId(id);
@@ -205,7 +205,7 @@ public class EmployeeController {
 	 */
 
 	@ApiOperation(value = "Add New Employee")
-	@RequestMapping(value = "/add/{id}/{name}/{managerName}/{department}/{salary}", method = POST)
+	@RequestMapping(value = "/{id}/{name}/{managerName}/{department}/{salary}", method = POST)
 	public @ResponseBody Status addedEmployee(@PathVariable int id,
 			@PathVariable String name, @PathVariable String managerName,
 			@PathVariable String department, @PathVariable double salary) {
