@@ -23,7 +23,7 @@ import com.department.data.validation.ValidateMessage;
 /**
  * This is Department controller class for department application.
  *
- * @author Rajkumar
+ * @author Rajkumar  
  * @version 1.0
  * 
  */
@@ -59,7 +59,7 @@ public class DepartmentController {
 	 * 
 	 */
 	@ApiOperation(value = "Add department")
-	@RequestMapping(value = "/add/{id}/{name}/{salaryminrange}/{salarymaxrange}", method = POST)
+	@RequestMapping(value = "/{id}/{name}/{salaryminrange}/{salarymaxrange}", method = POST)
 	public @ResponseBody Status addDepartment(@PathVariable int id,
 			@PathVariable String name, @PathVariable double salaryminrange,
 			@PathVariable double salarymaxrange) {
@@ -105,7 +105,7 @@ public class DepartmentController {
 	 * 
 	 */
 	@ApiOperation(value = "Edit department")
-	@RequestMapping(value = "/edit/{id}/{name}/{salaryminrange}/{salarymaxrange}", method = PUT)
+	@RequestMapping(value = "/{id}/{name}/{salaryminrange}/{salarymaxrange}", method = PUT)
 	public @ResponseBody Status editDepartment(@PathVariable int id,
 			@PathVariable String name, @PathVariable double salaryminrange,
 			@PathVariable double salarymaxrange) {
@@ -155,7 +155,7 @@ public class DepartmentController {
 	 * 
 	 */
 	@ApiOperation(value = "Delete department according to Id")
-	@RequestMapping(value = "/delete/{id}", method = DELETE)
+	@RequestMapping(value = "/{id}", method = DELETE)
 	public @ResponseBody Status deleteDepartment(@PathVariable int id) {
 		Department department = new Department();
 		department.setId(id);
