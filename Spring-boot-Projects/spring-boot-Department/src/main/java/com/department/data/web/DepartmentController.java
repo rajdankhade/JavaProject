@@ -282,12 +282,15 @@ public class DepartmentController {
 	@ApiOperation(value = "Search department and salary")
 	@ApiResponses(value = {
 			@ApiResponse(code = DepartmentConstants.SUCCESS_CODE, message = ""),
+			@ApiResponse(code = DepartmentConstants.INVALID_CODE, message = DepartmentConstants.INV_SAL),
 			@ApiResponse(code = DepartmentConstants.NON_AUTHORITATIVE_INFORMATION, message = DepartmentConstants.ISSUE_SEARCH_DEPARTMENT_SALARY) })
 	@RequestMapping(value = "/search/{department}/{salary}", method = GET)
 	public ResponseEntity<Department> getDepartmentAndSalary(
-			@PathVariable String department, @PathVariable double salary) {
+			@PathVariable String department, @PathVariable String salary) {	
+
+				
 		List<Department> departmentRes = departmentService
-				.findByDepartmentAndSalary(department, salary);// or we can use
+				.findByDepartmentAndSalary(department, Double.parseDouble(salary));// or we can use
 																// status code
 		try {
 			if (departmentRes != null) {
